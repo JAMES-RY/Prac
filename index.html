@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facility & Equipment Help Desk</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="sidebar">
+        <h2>🏫 Help Desk</h2>
+        <ul>
+            <li onclick="showSection('reserve')">Room Reservation</li>
+            <li onclick="showSection('equipment')">Equipment Request</li>
+            <li onclick="showSection('tracking')">Status & Tracking</li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <section id="reserve">
+            <h1>Facility Reservation</h1>
+            <div class="card">
+                <input type="text" id="resOrg" placeholder="Course">
+                <select id="resItem">
+                    <option value="Laboratory 1">Laboratory 1</option>
+                    <option value="Laboratory 2">Laboratory 2</option>
+                </select>
+                <input type="datetime-local" id="resDate">
+                <button onclick="processRequest('Facility')">Submit Request</button>
+            </div>
+        </section>
+
+        <section id="equipment" style="display:none;">
+            <h1>Equipment Borrowing</h1>
+            <div class="card">
+                <input type="text" id="eqOrg" placeholder="Borrower Name">
+                <select id="eqItem">
+                    <option value="Projector">Projector</option>
+                    <option value="Sound System">Sound System</option>
+                    <option value="Laptop">Laptop</option>
+                    <option value="Smart Tv">Smart Tv</option>
+                </select>
+                <input type="datetime-local" id="eqDate">
+                <button onclick="processRequest('Equipment')">Borrow Equipment</button>
+            </div>
+        </section>
+
+        <section id="tracking" style="display:none;">
+            <h1>Approval & Return Monitoring</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Course/Borrower Name</th>
+                        <th>Type</th>
+                        <th>Item/Venue</th>
+                        <th>Schedule</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="statusTable"></tbody>
+            </table>
+        </section>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
